@@ -11,6 +11,7 @@ contract UpvoteERC1155 is ERC1155(""), Ownable {
     string public constant symbol = "DHNT UPVT";
 
     address public daoHunt;
+    string commonURI;
 
     function mint(uint256 id, address to) external {
         require(msg.sender == daoHunt, "Not Authorized");
@@ -19,5 +20,13 @@ contract UpvoteERC1155 is ERC1155(""), Ownable {
 
     function setDAOHunt(address _daoHunt) external onlyOwner {
         daoHunt = _daoHunt;
+    }
+
+    function setURI(string calldata _uri) external onlyOwner {
+        commonURI = _uri;
+    }
+
+    function uri(uint256 _id) public view override returns (string memory) {
+        return commonURI;
     }
 }

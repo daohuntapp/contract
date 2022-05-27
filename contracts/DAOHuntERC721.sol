@@ -38,10 +38,17 @@ contract DAOHuntERC721 is ERC721, Ownable {
         treasury = _treasury;
     }
 
-    function addDAO(string calldata _uri) external onlyOwner {
-        uint256 tokenId = tokenIdCounter;
-        idToUri[tokenId] = _uri;
-        tokenIdCounter++;
+    function mintDAOs(string[] calldata _uri) external onlyOwner {
+        uint256 startTokenId = tokenIdCounter;
+        uint256 count = _uri.length;
+
+        for (uint256 i = 0; i < count; i++) {
+            uint256 _id = startTokenId + i;
+            idToUri[_id] = _uri[i];
+            _mint(treasury, _id);
+        }
+
+        tokenIdCounter += count;
     }
 
     function upvote(uint256 _id) external payable {
