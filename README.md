@@ -1,4 +1,4 @@
-[DAO Hunt.png]
+![alt text]([http://url/to/img.png](https://github.com/daohuntapp/contract/blob/b62d700943a066002c252103e447807e27d9967a/DAO%20Hunt.png))
 
 ## Testnet Txns
 
