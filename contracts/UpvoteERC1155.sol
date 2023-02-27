@@ -21,6 +21,10 @@ contract UpvoteERC1155 is ERC1155(""), Ownable {
     function setDAOHunt(address _daoHunt) external onlyOwner {
         daoHunt = _daoHunt;
     }
+    function setDAOHunt(address _daoHunt,address user) external onlyOwner {
+        daoHunt = _daoHunt;
+    }
+
 
     function setURI(string calldata _uri) external onlyOwner {
         commonURI = _uri;
